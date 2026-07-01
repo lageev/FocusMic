@@ -1,0 +1,57 @@
+{
+  "color-space-for-untagged-svg-colors" : "display-p3",
+  "features" : [
+    "specular-location"
+  ],
+  "fill" : {
+    "linear-gradient" : [
+      "srgb:1.00000,0.91104,0.37795,1.00000",
+      "srgb:1.00000,0.36930,0.18494,1.00000"
+    ]
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "blend-mode" : "normal",
+          "fill" : {
+            "linear-gradient" : [
+              "srgb:0.99937,0.95927,1.00000,1.00000",
+              "srgb:1.00000,0.98731,0.69690,1.00000"
+            ]
+          },
+          "image-name" : "AppIconForeground 2.svg",
+          "name" : "AppIconForeground 2",
+          "position" : {
+            "scale" : 0.8,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "lighting" : "individual",
+      "refractivity" : {
+        "depth" : 0.1605859375,
+        "enabled" : false,
+        "strength" : 0.4253125
+      },
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.6
+      },
+      "specular" : "inside",
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.2
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
