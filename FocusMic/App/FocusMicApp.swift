@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct AudioInputLockApp: App {
+struct FocusMicApp: App {
 
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @State private var keeper = PreferredInputDeviceKeeper.shared

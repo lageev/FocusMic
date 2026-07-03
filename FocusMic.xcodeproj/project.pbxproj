@@ -11,24 +11,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		1A0000000000000000000010 /* Exceptions for "AudioInputLock" folder in "AudioInputLock" target */ = {
+		1A0000000000000000000010 /* Exceptions for "FocusMic" folder in "FocusMic" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				IconSources/AppIcon.icon,
 				IconSources/AppIconForeground.svg,
 				IconSources/StatusBarIcon.svg,
 			);
-			target = 1A0000000000000000000005 /* AudioInputLock */;
+			target = 1A0000000000000000000005 /* FocusMic */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1A0000000000000000000004 /* AudioInputLock */ = {
+		1A0000000000000000000004 /* FocusMic */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				1A0000000000000000000010 /* Exceptions for "AudioInputLock" folder in "AudioInputLock" target */,
+				1A0000000000000000000010 /* Exceptions for "FocusMic" folder in "FocusMic" target */,
 			);
-			path = AudioInputLock;
+			path = FocusMic;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -47,7 +47,7 @@
 		1A0000000000000000000002 = {
 			isa = PBXGroup;
 			children = (
-				1A0000000000000000000004 /* AudioInputLock */,
+				1A0000000000000000000004 /* FocusMic */,
 				1A0000000000000000000003 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,9 +63,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1A0000000000000000000005 /* AudioInputLock */ = {
+		1A0000000000000000000005 /* FocusMic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1A000000000000000000000B /* Build configuration list for PBXNativeTarget "AudioInputLock" */;
+			buildConfigurationList = 1A000000000000000000000B /* Build configuration list for PBXNativeTarget "FocusMic" */;
 			buildPhases = (
 				1A0000000000000000000007 /* Sources */,
 				1A0000000000000000000008 /* Frameworks */,
@@ -76,9 +76,9 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				1A0000000000000000000004 /* AudioInputLock */,
+				1A0000000000000000000004 /* FocusMic */,
 			);
-			name = AudioInputLock;
+			name = FocusMic;
 			productName = FocusMic;
 			productReference = 1A0000000000000000000006 /* FocusMic.app */;
 			productType = "com.apple.product-type.application";
@@ -98,7 +98,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1A000000000000000000000A /* Build configuration list for PBXProject "AudioInputLock" */;
+			buildConfigurationList = 1A000000000000000000000A /* Build configuration list for PBXProject "FocusMic" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1A0000000000000000000005 /* AudioInputLock */,
+				1A0000000000000000000005 /* FocusMic */,
 			);
 		};
 /* End PBXProject section */
@@ -206,7 +206,7 @@
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "需要访问音频设备信息以管理默认输入设备。";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = top.yayalu.AudioInputLock;
+				PRODUCT_BUNDLE_IDENTIFIER = top.yayalu.FocusMic;
 				PRODUCT_NAME = FocusMic;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -234,7 +234,7 @@
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "需要访问音频设备信息以管理默认输入设备。";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = top.yayalu.AudioInputLock;
+				PRODUCT_BUNDLE_IDENTIFIER = top.yayalu.FocusMic;
 				PRODUCT_NAME = FocusMic;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -244,7 +244,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A000000000000000000000A /* Build configuration list for PBXProject "AudioInputLock" */ = {
+		1A000000000000000000000A /* Build configuration list for PBXProject "FocusMic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A000000000000000000000C /* Debug */,
@@ -253,7 +253,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1A000000000000000000000B /* Build configuration list for PBXNativeTarget "AudioInputLock" */ = {
+		1A000000000000000000000B /* Build configuration list for PBXNativeTarget "FocusMic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A000000000000000000000E /* Debug */,

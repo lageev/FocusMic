@@ -50,9 +50,9 @@ When a change is detected, it waits a short debounce period (0.15–0.3s), then 
 ## Project Structure
 
 ```
-AudioInputLock/
+FocusMic/
 ├── App/                    # App entry point & delegate
-│   ├── AudioInputLockApp.swift
+│   ├── FocusMicApp.swift
 │   └── AppDelegate.swift
 ├── Audio/                  # Core Audio hardware layer
 │   ├── AudioHardwareService.swift

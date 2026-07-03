@@ -104,7 +104,7 @@
       'terms.s2.h': '2. 软件说明',
       'terms.s2.p': '本软件是一款运行于 macOS 的菜单栏工具，用于将系统默认音频输入设备锁定为你选定的设备。本软件免费提供，无任何付费功能或应用内购买。',
       'terms.s3.h': '3. 许可授权',
-      'terms.s3.p': '本软件基于 MIT 许可证开源发布。在遵守该许可证条款的前提下，你可以自由地使用、复制、修改和分发本软件及其源代码。完整源代码托管于 <a href="https://github.com/lageev/AudioInputLock" target="_blank" rel="noopener">GitHub</a>。',
+      'terms.s3.p': '本软件基于 MIT 许可证开源发布。在遵守该许可证条款的前提下，你可以自由地使用、复制、修改和分发本软件及其源代码。完整源代码托管于 <a href="https://github.com/lageev/FocusMic" target="_blank" rel="noopener">GitHub</a>。',
       'terms.s4.h': '4. 使用规范',
       'terms.s4.p': '你在使用本软件时应当：',
       'terms.s4.l1': '遵守你所在地区适用的法律法规；',
@@ -120,7 +120,7 @@
       'terms.s7.h': '7. 协议的变更与终止',
       'terms.s7.p': '我们可能不时更新本协议，更新后的协议将在本页面公布并调整生效日期。你可以随时停止使用并卸载本软件以终止本协议；卸载后本软件在本地保存的设置将一并删除。',
       'terms.s8.h': '8. 联系我们',
-      'terms.s8.p': '如对本协议有任何疑问，欢迎通过 <a href="https://github.com/lageev/AudioInputLock/issues" target="_blank" rel="noopener">GitHub Issues</a> 与我们联系。',
+      'terms.s8.p': '如对本协议有任何疑问，欢迎通过 <a href="https://github.com/lageev/FocusMic/issues" target="_blank" rel="noopener">GitHub Issues</a> 与我们联系。',
       'privacy.metaTitle': '隐私政策 — FocusMic',
       'privacy.metaDesc': 'FocusMic 隐私政策：完全本地运行，不收集、不存储、不传输任何个人信息。',
       'privacy.title': '隐私政策',
@@ -147,7 +147,7 @@
       'privacy.s7.h': '7. 政策变更',
       'privacy.s7.p': '如果本政策发生变更，我们会在本页面更新并调整生效日期。由于应用本身不联网，变更不会影响你已安装版本的行为。',
       'privacy.s8.h': '8. 联系我们',
-      'privacy.s8.p': '如对本政策有任何疑问，欢迎通过 <a href="https://github.com/lageev/AudioInputLock/issues" target="_blank" rel="noopener">GitHub Issues</a> 与我们联系。FocusMic 是开源软件，所有代码均可公开审计。'
+      'privacy.s8.p': '如对本政策有任何疑问，欢迎通过 <a href="https://github.com/lageev/FocusMic/issues" target="_blank" rel="noopener">GitHub Issues</a> 与我们联系。FocusMic 是开源软件，所有代码均可公开审计。'
     },
 
     'zh-TW': {
@@ -249,7 +249,7 @@
       'terms.s2.h': '2. 軟體說明',
       'terms.s2.p': '本軟體是一款執行於 macOS 的選單列工具，用於將系統預設音訊輸入裝置鎖定為你選定的裝置。本軟體免費提供，無任何付費功能或應用程式內購買。',
       'terms.s3.h': '3. 授權',
-      'terms.s3.p': '本軟體基於 MIT 授權開源發布。在遵守該授權條款的前提下，你可以自由地使用、複製、修改和散布本軟體及其原始碼。完整原始碼託管於 <a href="https://github.com/lageev/AudioInputLock" target="_blank" rel="noopener">GitHub</a>。',
+      'terms.s3.p': '本軟體基於 MIT 授權開源發布。在遵守該授權條款的前提下，你可以自由地使用、複製、修改和散布本軟體及其原始碼。完整原始碼託管於 <a href="https://github.com/lageev/FocusMic" target="_blank" rel="noopener">GitHub</a>。',
       'terms.s4.h': '4. 使用規範',
       'terms.s4.p': '你在使用本軟體時應當：',
       'terms.s4.l1': '遵守你所在地區適用的法律法規；',
@@ -265,7 +265,7 @@
       'terms.s7.h': '7. 條款的變更與終止',
       'terms.s7.p': '我們可能不時更新本條款，更新後的條款將在本頁面公布並調整生效日期。你可以隨時停止使用並解除安裝本軟體以終止本條款；解除安裝後本軟體在本機儲存的設定將一併刪除。',
       'terms.s8.h': '8. 聯絡我們',
-      'terms.s8.p': '如對本條款有任何疑問，歡迎透過 <a href="https://github.com/lageev/AudioInputLock/issues" target="_blank" rel="noopener">GitHub Issues</a> 與我們聯絡。',
+      'terms.s8.p': '如對本條款有任何疑問，歡迎透過 <a href="https://github.com/lageev/FocusMic/issues" target="_blank" rel="noopener">GitHub Issues</a> 與我們聯絡。',
       'privacy.metaTitle': '隱私權政策 — FocusMic',
       'privacy.metaDesc': 'FocusMic 隱私權政策：完全在本機執行，不蒐集、不儲存、不傳輸任何個人資訊。',
       'privacy.title': '隱私權政策',
@@ -291,7 +291,7 @@
       'privacy.s7.h': '7. 政策變更',
       'privacy.s7.p': '如果本政策發生變更，我們會在本頁面更新並調整生效日期。由於應用程式本身不連網，變更不會影響你已安裝版本的行為。',
       'privacy.s8.h': '8. 聯絡我們',
-      'privacy.s8.p': '如對本政策有任何疑問，歡迎透過 <a href="https://github.com/lageev/AudioInputLock/issues" target="_blank" rel="noopener">GitHub Issues</a> 與我們聯絡。FocusMic 是開源軟體，所有程式碼均可公開稽核。'
+      'privacy.s8.p': '如對本政策有任何疑問，歡迎透過 <a href="https://github.com/lageev/FocusMic/issues" target="_blank" rel="noopener">GitHub Issues</a> 與我們聯絡。FocusMic 是開源軟體，所有程式碼均可公開稽核。'
     },
 
     'en': {
@@ -393,7 +393,7 @@
       'terms.s2.h': '2. About the Software',
       'terms.s2.p': 'The Software is a macOS menu bar utility that locks the system default audio input device to the device you choose. It is provided free of charge, with no paid features or in-app purchases.',
       'terms.s3.h': '3. License',
-      'terms.s3.p': 'The Software is released under the MIT License. Subject to its terms, you are free to use, copy, modify, and distribute the Software and its source code. The full source code is hosted on <a href="https://github.com/lageev/AudioInputLock" target="_blank" rel="noopener">GitHub</a>.',
+      'terms.s3.p': 'The Software is released under the MIT License. Subject to its terms, you are free to use, copy, modify, and distribute the Software and its source code. The full source code is hosted on <a href="https://github.com/lageev/FocusMic" target="_blank" rel="noopener">GitHub</a>.',
       'terms.s4.h': '4. Acceptable Use',
       'terms.s4.p': 'When using the Software, you shall:',
       'terms.s4.l1': 'comply with the laws and regulations applicable in your region;',
@@ -409,7 +409,7 @@
       'terms.s7.h': '7. Changes and Termination',
       'terms.s7.p': 'We may update these terms from time to time; updates will be published on this page with a revised effective date. You may terminate this agreement at any time by uninstalling the Software; locally stored settings are deleted along with it.',
       'terms.s8.h': '8. Contact',
-      'terms.s8.p': 'If you have any questions about these terms, feel free to reach out via <a href="https://github.com/lageev/AudioInputLock/issues" target="_blank" rel="noopener">GitHub Issues</a>.',
+      'terms.s8.p': 'If you have any questions about these terms, feel free to reach out via <a href="https://github.com/lageev/FocusMic/issues" target="_blank" rel="noopener">GitHub Issues</a>.',
       'privacy.metaTitle': 'Privacy Policy — FocusMic',
       'privacy.metaDesc': 'FocusMic Privacy Policy: runs entirely on your Mac and never collects, stores, or transmits any personal information.',
       'privacy.title': 'Privacy Policy',
@@ -436,7 +436,7 @@
       'privacy.s7.h': '7. Changes to This Policy',
       'privacy.s7.p': 'If this policy changes, we will update this page and revise the effective date. Since the app itself never connects to the internet, changes will not affect the behavior of versions you have already installed.',
       'privacy.s8.h': '8. Contact Us',
-      'privacy.s8.p': 'If you have any questions about this policy, feel free to reach out via <a href="https://github.com/lageev/AudioInputLock/issues" target="_blank" rel="noopener">GitHub Issues</a>. FocusMic is open source and all code is publicly auditable.'
+      'privacy.s8.p': 'If you have any questions about this policy, feel free to reach out via <a href="https://github.com/lageev/FocusMic/issues" target="_blank" rel="noopener">GitHub Issues</a>. FocusMic is open source and all code is publicly auditable.'
     },
 
     'ja': {
@@ -538,7 +538,7 @@
       'terms.s2.h': '2. ソフトウェアについて',
       'terms.s2.p': '本ソフトウェアは、システムのデフォルト音声入力デバイスを選択したデバイスにロックする macOS 用メニューバーツールです。無料で提供され、有料機能やアプリ内課金はありません。',
       'terms.s3.h': '3. ライセンス',
-      'terms.s3.p': '本ソフトウェアは MIT ライセンスの下でオープンソースとして公開されています。ライセンス条項の範囲内で、本ソフトウェアとそのソースコードを自由に使用、複製、改変、再配布できます。完全なソースコードは <a href="https://github.com/lageev/AudioInputLock" target="_blank" rel="noopener">GitHub</a> でホストされています。',
+      'terms.s3.p': '本ソフトウェアは MIT ライセンスの下でオープンソースとして公開されています。ライセンス条項の範囲内で、本ソフトウェアとそのソースコードを自由に使用、複製、改変、再配布できます。完全なソースコードは <a href="https://github.com/lageev/FocusMic" target="_blank" rel="noopener">GitHub</a> でホストされています。',
       'terms.s4.h': '4. 利用上のルール',
       'terms.s4.p': '本ソフトウェアの使用にあたっては、以下を遵守してください：',
       'terms.s4.l1': 'お住まいの地域で適用される法令を遵守すること；',
@@ -554,7 +554,7 @@
       'terms.s7.h': '7. 規約の変更と終了',
       'terms.s7.p': '本規約は随時更新されることがあり、更新後の規約は本ページで公開され、施行日が改定されます。本ソフトウェアの使用を中止しアンインストールすることで、いつでも本規約を終了できます。アンインストール後、ローカルに保存された設定も併せて削除されます。',
       'terms.s8.h': '8. お問い合わせ',
-      'terms.s8.p': '本規約についてご質問がある場合は、<a href="https://github.com/lageev/AudioInputLock/issues" target="_blank" rel="noopener">GitHub Issues</a> からお気軽にお問い合わせください。',
+      'terms.s8.p': '本規約についてご質問がある場合は、<a href="https://github.com/lageev/FocusMic/issues" target="_blank" rel="noopener">GitHub Issues</a> からお気軽にお問い合わせください。',
       'privacy.metaTitle': 'プライバシーポリシー — FocusMic',
       'privacy.metaDesc': 'FocusMic プライバシーポリシー：完全にローカルで動作し、いかなる個人情報も収集・保存・送信しません。',
       'privacy.title': 'プライバシーポリシー',
@@ -580,7 +580,7 @@
       'privacy.s7.h': '7. ポリシーの変更',
       'privacy.s7.p': '本ポリシーに変更がある場合は、本ページを更新し、施行日を改定します。アプリ自体はインターネットに接続しないため、変更がインストール済みバージョンの動作に影響することはありません。',
       'privacy.s8.h': '8. お問い合わせ',
-      'privacy.s8.p': '本ポリシーについてご質問がある場合は、<a href="https://github.com/lageev/AudioInputLock/issues" target="_blank" rel="noopener">GitHub Issues</a> からお気軽にお問い合わせください。FocusMic はオープンソースであり、すべてのコードを公開監査できます。'
+      'privacy.s8.p': '本ポリシーについてご質問がある場合は、<a href="https://github.com/lageev/FocusMic/issues" target="_blank" rel="noopener">GitHub Issues</a> からお気軽にお問い合わせください。FocusMic はオープンソースであり、すべてのコードを公開監査できます。'
     },
 
     'ko': {
@@ -682,7 +682,7 @@
       'terms.s2.h': '2. 소프트웨어 소개',
       'terms.s2.p': '본 소프트웨어는 시스템 기본 오디오 입력 장치를 사용자가 선택한 장치로 고정하는 macOS 메뉴 막대 도구입니다. 무료로 제공되며 유료 기능이나 인앱 구매가 없습니다.',
       'terms.s3.h': '3. 라이선스',
-      'terms.s3.p': '본 소프트웨어는 MIT 라이선스로 오픈소스로 배포됩니다. 해당 라이선스 조건을 준수하는 한 본 소프트웨어와 소스 코드를 자유롭게 사용, 복사, 수정, 배포할 수 있습니다. 전체 소스 코드는 <a href="https://github.com/lageev/AudioInputLock" target="_blank" rel="noopener">GitHub</a>에서 호스팅됩니다.',
+      'terms.s3.p': '본 소프트웨어는 MIT 라이선스로 오픈소스로 배포됩니다. 해당 라이선스 조건을 준수하는 한 본 소프트웨어와 소스 코드를 자유롭게 사용, 복사, 수정, 배포할 수 있습니다. 전체 소스 코드는 <a href="https://github.com/lageev/FocusMic" target="_blank" rel="noopener">GitHub</a>에서 호스팅됩니다.',
       'terms.s4.h': '4. 이용 수칙',
       'terms.s4.p': '본 소프트웨어를 사용할 때 다음을 준수해야 합니다:',
       'terms.s4.l1': '거주 지역에 적용되는 법령을 준수할 것;',
@@ -698,7 +698,7 @@
       'terms.s7.h': '7. 약관의 변경 및 종료',
       'terms.s7.p': '본 약관은 수시로 갱신될 수 있으며, 갱신된 약관은 본 페이지에 게시되고 시행일이 조정됩니다. 언제든지 본 소프트웨어의 사용을 중단하고 제거하여 본 약관을 종료할 수 있으며, 제거 시 로컬에 저장된 설정도 함께 삭제됩니다.',
       'terms.s8.h': '8. 문의',
-      'terms.s8.p': '본 약관에 관한 문의는 <a href="https://github.com/lageev/AudioInputLock/issues" target="_blank" rel="noopener">GitHub Issues</a>를 통해 언제든지 연락해 주십시오.',
+      'terms.s8.p': '본 약관에 관한 문의는 <a href="https://github.com/lageev/FocusMic/issues" target="_blank" rel="noopener">GitHub Issues</a>를 통해 언제든지 연락해 주십시오.',
       'privacy.metaTitle': '개인정보 처리방침 — FocusMic',
       'privacy.metaDesc': 'FocusMic 개인정보 처리방침: 완전히 로컬에서 실행되며 어떠한 개인정보도 수집·저장·전송하지 않습니다.',
       'privacy.title': '개인정보 처리방침',
@@ -724,7 +724,7 @@
       'privacy.s7.h': '7. 방침의 변경',
       'privacy.s7.p': '본 방침이 변경되면 본 페이지에 갱신하고 시행일을 조정합니다. 앱 자체가 인터넷에 연결되지 않으므로, 변경이 이미 설치된 버전의 동작에 영향을 주지 않습니다.',
       'privacy.s8.h': '8. 문의',
-      'privacy.s8.p': '본 방침에 관한 문의는 <a href="https://github.com/lageev/AudioInputLock/issues" target="_blank" rel="noopener">GitHub Issues</a>를 통해 언제든지 연락해 주십시오. FocusMic은 오픈소스이며 모든 코드를 공개적으로 감사할 수 있습니다.'
+      'privacy.s8.p': '본 방침에 관한 문의는 <a href="https://github.com/lageev/FocusMic/issues" target="_blank" rel="noopener">GitHub Issues</a>를 통해 언제든지 연락해 주십시오. FocusMic은 오픈소스이며 모든 코드를 공개적으로 감사할 수 있습니다.'
     }
   };
 
