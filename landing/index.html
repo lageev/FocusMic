@@ -211,14 +211,58 @@
     transform: translateY(-2px);
     box-shadow: 0 14px 30px -8px rgba(255, 94, 47, 0.6);
   }
-  .btn-ghost {
-    color: var(--ink);
-    border: 1px solid var(--line);
-    background: var(--card);
-  }
-  .btn-ghost:hover { border-color: rgba(30, 25, 19, 0.22); transform: translateY(-2px); }
   .btn svg { width: 17px; height: 17px; }
-  .cta-note { width: 100%; font-size: 12.5px; color: var(--ink-3); margin-top: 2px; }
+  .brew-copy {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex: 1 1 300px;
+    max-width: 370px;
+    min-width: 280px;
+    padding: 8px 8px 8px 10px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.82);
+  }
+  .brew-label {
+    flex: none;
+    font-size: 11.5px;
+    font-weight: 650;
+    color: var(--accent-deep);
+  }
+  .brew-command {
+    min-width: 0;
+    flex: 1;
+    font-family: "SF Mono", ui-monospace, Menlo, monospace;
+    font-size: 11.5px;
+    color: var(--ink-2);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .copy-command {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    flex: none;
+    height: 26px;
+    padding: 0 8px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: var(--card);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color .18s ease, transform .18s ease, color .18s ease;
+  }
+  .copy-command:hover {
+    border-color: rgba(255, 94, 47, 0.3);
+    color: var(--accent-deep);
+    transform: translateY(-1px);
+  }
+  .copy-command svg { width: 13px; height: 13px; }
 
   /* ---------- 菜单栏面板模拟 ---------- */
   .stage { position: relative; display: flex; justify-content: center; }
@@ -346,11 +390,24 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
     padding: 7px 6px;
+    border: 0;
     border-radius: 9px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
     transition: background .15s ease;
   }
   .device-row:hover { background: rgba(30, 25, 19, 0.05); }
+  .device-row:focus-visible {
+    outline: 2px solid rgba(255, 94, 47, 0.42);
+    outline-offset: 2px;
+  }
   .device-ic {
     display: flex;
     align-items: center;
@@ -362,12 +419,34 @@
     color: var(--ink-2);
   }
   .device-row.active .device-ic { background: rgba(255, 94, 47, 0.12); color: var(--accent); }
+  .panel.unguarded .device-row.active .device-ic { background: rgba(250, 184, 46, 0.18); color: #E09B0E; }
   .device-ic svg { width: 13px; height: 13px; }
-  .device-name { font-size: 13px; }
+  .device-row > div:not(.device-ic):not(.spacer):not(.device-accessory) { min-width: 0; }
+  .device-name {
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .device-row.active .device-name { font-weight: 560; }
-  .device-meta { font-size: 11px; color: var(--ink-3); }
+  .device-meta {
+    font-size: 11px;
+    color: var(--ink-3);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .device-row .spacer { flex: 1; }
+  .device-accessory {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 76px;
+  }
   .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     padding: 3px 9px;
     border-radius: 999px;
     background: var(--accent);
@@ -376,6 +455,8 @@
     font-weight: 550;
     white-space: nowrap;
   }
+  .badge.warm { background: #E09B0E; }
+  .badge.danger { background: #D9472B; }
 
   .waveform { display: flex; align-items: center; gap: 2px; height: 14px; }
   .waveform span {
@@ -388,6 +469,25 @@
   .waveform span:nth-child(2) { height: 12px; animation-delay: .18s; }
   .waveform span:nth-child(3) { height: 8px; animation-delay: .36s; }
   .waveform span:nth-child(4) { height: 11px; animation-delay: .54s; }
+  .waveform.muted span { background: var(--ink-3); }
+  .badge .waveform { height: 11px; }
+  .badge .waveform span {
+    width: 2px;
+    background: currentColor;
+  }
+  .badge .waveform span:nth-child(1) { height: 5px; }
+  .badge .waveform span:nth-child(2) { height: 10px; }
+  .badge .waveform span:nth-child(3) { height: 7px; }
+  .badge .waveform span:nth-child(4) { height: 9px; }
+  .hover-label {
+    font-size: 11px;
+    color: var(--ink-3);
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity .15s ease;
+  }
+  .device-row:hover .hover-label,
+  .device-row:focus-visible .hover-label { opacity: 1; }
   @keyframes wave {
     0%, 100% { transform: scaleY(0.5); opacity: .55; }
     50% { transform: scaleY(1); opacity: 1; }
@@ -736,6 +836,8 @@
   @media (max-width: 560px) {
     .features, .usage, .pain-strip { grid-template-columns: 1fr; }
     .cta-row .btn { width: 100%; justify-content: center; }
+    .brew-copy { flex-basis: 100%; max-width: none; min-width: 0; }
+    .brew-label { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -779,11 +881,14 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span data-i18n="hero.download">免费下载</span>
           </a>
-          <a class="btn btn-ghost" href="https://github.com/lageev/AudioInputLock" target="_blank" rel="noopener">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-            <span data-i18n="hero.source">查看源码</span>
-          </a>
-          <span class="cta-note" data-i18n="hero.note">macOS 15.0+ · 免费开源（MIT 许可证）</span>
+          <div class="brew-copy">
+            <span class="brew-label" data-i18n="hero.brew.label">Homebrew</span>
+            <code class="brew-command">brew install --cask focusmic</code>
+            <button type="button" class="copy-command" data-copy-command="brew install --cask focusmic" aria-label="复制 Homebrew 命令">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span data-copy-label data-i18n="hero.brew.copy">复制</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -802,7 +907,7 @@
                 <svg id="status-symbol" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 0 0-5 5v3h2V7a3 3 0 0 1 6 0v3h2V7a5 5 0 0 0-5-5Zm-6 9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-8Zm7 3.5a1.5 1.5 0 1 0-2 1.41V18h2v-2.09a1.5 1.5 0 0 0 0-1.41Z" transform="translate(3 0) scale(0.87)"/></svg>
               </div>
               <div>
-                <div class="status-title">Studio Mic USB</div>
+                <div class="status-title" id="status-title">Studio Mic USB</div>
                 <div class="status-detail" id="status-detail" data-i18n="panel.status.locked">已锁定，守护中</div>
               </div>
             </div>
@@ -822,7 +927,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><polyline points="21 3 21 9 15 9"/></svg>
             </div>
 
-            <div class="device-row active">
+            <button type="button" class="device-row active" data-device-id="studio" aria-pressed="true">
               <div class="device-ic">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a4 4 0 0 0-4 4v6a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Zm-7 10a1 1 0 1 1 2 0 5 5 0 0 0 10 0 1 1 0 1 1 2 0 7 7 0 0 1-6 6.93V21h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3v-2.07A7 7 0 0 1 5 12Z"/></svg>
               </div>
@@ -831,11 +936,10 @@
                 <div class="device-meta" data-i18n="panel.meta.main">2 通道 · 4A81</div>
               </div>
               <div class="spacer"></div>
-              <div class="waveform"><span></span><span></span><span></span><span></span></div>
-              <span class="badge" id="active-badge" data-i18n="panel.badge.locked">已锁定</span>
-            </div>
+              <div class="device-accessory"></div>
+            </button>
 
-            <div class="device-row">
+            <button type="button" class="device-row" data-device-id="airpods" aria-pressed="false">
               <div class="device-ic">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm18 0h-3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-5Z"/><path d="M3 14v-3a9 9 0 0 1 18 0v3"/></svg>
               </div>
@@ -843,9 +947,11 @@
                 <div class="device-name">AirPods Pro</div>
                 <div class="device-meta" data-i18n="panel.meta.airpods">1 通道 · 09F3</div>
               </div>
-            </div>
+              <div class="spacer"></div>
+              <div class="device-accessory"></div>
+            </button>
 
-            <div class="device-row">
+            <button type="button" class="device-row" data-device-id="builtin" aria-pressed="false">
               <div class="device-ic">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg>
               </div>
@@ -853,7 +959,9 @@
                 <div class="device-name" data-i18n="panel.device.builtin">MacBook Pro 麦克风</div>
                 <div class="device-meta" data-i18n="panel.meta.builtin">1 通道 · BLTN</div>
               </div>
-            </div>
+              <div class="spacer"></div>
+              <div class="device-accessory"></div>
+            </button>
 
             <hr style="margin-top:6px">
 
@@ -1071,30 +1179,130 @@
 
 <script src="assets/i18n.js"></script>
 <script>
-  // 面板开关交互：模拟 LockStatus 的「守护中 / 未开启守护」两种状态。
+  // 面板交互：模拟 PreferredInputDeviceKeeper + DeviceRowStatus 的设备选择与守护状态。
   // 文案通过 data-i18n 键更新，切换语言时也能保持当前状态。
   const panel = document.getElementById('panel');
+  const statusTitle = document.getElementById('status-title');
   const statusDetail = document.getElementById('status-detail');
   const toggleSub = document.getElementById('toggle-sub');
-  const activeBadge = document.getElementById('active-badge');
   const statusSymbol = document.getElementById('status-symbol');
+  const deviceRows = Array.from(document.querySelectorAll('.device-row[data-device-id]'));
 
   const lockPath = 'M12 2a5 5 0 0 0-5 5v3h2V7a3 3 0 0 1 6 0v3h2V7a5 5 0 0 0-5-5Zm-6 9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-8Zm7 3.5a1.5 1.5 0 1 0-2 1.41V18h2v-2.09a1.5 1.5 0 0 0 0-1.41Z';
   const micPath = 'M12 2a4 4 0 0 0-4 4v6a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Zm-7 10a1 1 0 1 1 2 0 5 5 0 0 0 10 0 1 1 0 1 1 2 0 7 7 0 0 1-6 6.93V21h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3v-2.07A7 7 0 0 1 5 12Z';
+
+  const demoState = {
+    guardOn: true,
+    preferredId: 'studio',
+    currentId: 'studio'
+  };
 
   const setText = (el, key) => {
     el.setAttribute('data-i18n', key);
     el.textContent = I18N.t(key);
   };
 
+  const waveformMarkup = (extraClass = '') =>
+    `<span class="waveform ${extraClass}" aria-hidden="true"><span></span><span></span><span></span><span></span></span>`;
+
+  const badgeMarkup = (key, tone = '', withWaveform = false) =>
+    `<span class="badge ${tone}">${withWaveform ? waveformMarkup('') : ''}<span data-i18n="${key}">${I18N.t(key)}</span></span>`;
+
+  const rowStatus = (row) => {
+    const id = row.dataset.deviceId;
+    const isPreferred = id === demoState.preferredId;
+    const isDefault = id === demoState.currentId;
+    const hasPreferred = Boolean(demoState.preferredId);
+
+    if (demoState.guardOn) {
+      if (isPreferred) return isDefault ? 'locked' : 'selected';
+      return isDefault ? 'currentInput' : 'idle';
+    }
+
+    if (isPreferred) return isDefault ? 'switched' : 'preempted';
+    if (hasPreferred && isDefault) return 'unattendedTransfer';
+    return isDefault ? 'currentInput' : 'idleSwitch';
+  };
+
+  const accessoryMarkup = (status) => {
+    if (status === 'locked') return badgeMarkup('panel.badge.locked');
+    if (status === 'selected') return badgeMarkup('panel.badge.selected', 'warm');
+    if (status === 'switched') return badgeMarkup('panel.badge.switched', 'warm', true);
+    if (status === 'preempted') return badgeMarkup('panel.badge.preempted', 'warm');
+    if (status === 'unattendedTransfer') return badgeMarkup('panel.badge.unattended', 'danger', true);
+    if (status === 'currentInput') return waveformMarkup('muted');
+    return `<span class="hover-label" data-i18n="${demoState.guardOn ? 'panel.action.lock' : 'panel.action.switch'}">${I18N.t(demoState.guardOn ? 'panel.action.lock' : 'panel.action.switch')}</span>`;
+  };
+
+  const renderDemoPanel = () => {
+    panel.classList.toggle('unguarded', !demoState.guardOn);
+    setText(statusDetail, demoState.guardOn ? 'panel.status.locked' : 'panel.status.unguarded');
+    setText(toggleSub, demoState.guardOn ? 'panel.toggle.on' : 'panel.toggle.off');
+
+    const selectedRow = deviceRows.find(row => row.dataset.deviceId === demoState.preferredId);
+    if (selectedRow) statusTitle.textContent = selectedRow.querySelector('.device-name').textContent;
+
+    const statusPath = statusSymbol.querySelector('path');
+    statusPath.setAttribute('d', demoState.guardOn ? lockPath : micPath);
+    statusPath.setAttribute('transform', demoState.guardOn ? 'translate(3 0) scale(0.87)' : '');
+
+    deviceRows.forEach(row => {
+      const status = rowStatus(row);
+      const isPreferred = row.dataset.deviceId === demoState.preferredId;
+      row.classList.toggle('active', isPreferred);
+      row.classList.toggle('has-status', !status.startsWith('idle'));
+      row.setAttribute('aria-pressed', String(isPreferred));
+      row.querySelector('.device-accessory').innerHTML = accessoryMarkup(status);
+    });
+  };
+
   document.getElementById('guard-switch').addEventListener('click', () => {
-    const off = panel.classList.toggle('unguarded');
-    setText(statusDetail, off ? 'panel.status.unguarded' : 'panel.status.locked');
-    setText(toggleSub, off ? 'panel.toggle.off' : 'panel.toggle.on');
-    setText(activeBadge, off ? 'panel.badge.selected' : 'panel.badge.locked');
-    activeBadge.style.background = off ? 'var(--warm)' : 'var(--accent)';
-    statusSymbol.querySelector('path').setAttribute('d', off ? micPath : lockPath);
-    statusSymbol.querySelector('path').setAttribute('transform', off ? '' : 'translate(3 0) scale(0.87)');
+    demoState.guardOn = !demoState.guardOn;
+    if (demoState.guardOn) demoState.currentId = demoState.preferredId;
+    renderDemoPanel();
+  });
+
+  deviceRows.forEach(row => {
+    row.addEventListener('click', () => {
+      demoState.preferredId = row.dataset.deviceId;
+      demoState.currentId = row.dataset.deviceId;
+      renderDemoPanel();
+    });
+  });
+
+  document.querySelectorAll('select.lang-select').forEach(sel => {
+    sel.addEventListener('change', renderDemoPanel);
+  });
+
+  renderDemoPanel();
+
+  const copyCommand = async (text) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+    const area = document.createElement('textarea');
+    area.value = text;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand('copy');
+    area.remove();
+  };
+
+  document.querySelectorAll('[data-copy-command]').forEach(button => {
+    const label = button.querySelector('[data-copy-label]');
+    button.addEventListener('click', async () => {
+      await copyCommand(button.dataset.copyCommand);
+      label.setAttribute('data-i18n', 'hero.brew.copied');
+      label.textContent = I18N.t('hero.brew.copied');
+      window.setTimeout(() => {
+        label.setAttribute('data-i18n', 'hero.brew.copy');
+        label.textContent = I18N.t('hero.brew.copy');
+      }, 1400);
+    });
   });
 
   // 菜单栏时钟
