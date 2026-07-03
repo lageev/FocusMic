@@ -34,6 +34,12 @@ The app uses SwiftUI, Core Audio, Observation, and ServiceManagement.
 
 Download the latest build from [GitHub Releases](https://github.com/lageev/FocusMic/releases/latest).
 
+Or install with Homebrew:
+
+```sh
+brew install --cask lageev/tap/focusmic
+```
+
 To run from source:
 
 1. Clone this repository.
