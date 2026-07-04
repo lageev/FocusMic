@@ -5,6 +5,7 @@ import SwiftUI
 struct MainView: View {
     @Environment(PreferredInputDeviceKeeper.self) private var keeper
     @Environment(\.openWindow) private var openWindow
+    @ObservedObject private var updater = UpdaterService.shared
     @State private var launchAtLogin = LoginItemManager.isEnabled
     @State private var loginError: String?
 
@@ -128,18 +129,34 @@ struct MainView: View {
                         .foregroundStyle(.red)
                 }
 
-                HStack {
-                    Text("版本 \(UpdaterService.currentVersion)")
-                        .foregroundStyle(.secondary)
-                    Spacer()
-                    if UpdaterService.shared.supportsInAppUpdate {
-                        Button("检查更新…") {
-                            UpdaterService.shared.checkForUpdates()
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack {
+                        Text("版本 \(UpdaterService.currentVersion)")
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                        if updater.supportsInAppUpdate {
+                            Button(updater.checkButtonTitle, systemImage: updater.checkButtonSystemImage) {
+                                updater.checkForUpdates()
+                            }
+                            .disabled(!updater.canInitiateCheck)
+                            .help(updater.visibleStatusMessage ?? "检查是否有新版本")
+                        } else {
+                            Text("更新由 App Store 管理")
+                                .font(.caption)
+                                .foregroundStyle(.tertiary)
                         }
-                    } else {
-                        Text("更新由 App Store 管理")
-                            .font(.caption)
-                            .foregroundStyle(.tertiary)
+                    }
+
+                    if updater.supportsInAppUpdate, let message = updater.visibleStatusMessage {
+                        if updater.configurationError == nil {
+                            Text(message)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        } else {
+                            Label(message, systemImage: "exclamationmark.triangle.fill")
+                                .font(.caption)
+                                .foregroundStyle(.red)
+                        }
                     }
                 }
             }

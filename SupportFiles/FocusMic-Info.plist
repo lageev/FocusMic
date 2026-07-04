@@ -6,7 +6,7 @@
 	<key>SUFeedURL</key>
 	<string>https://focusmic.yayalu.top/appcast.xml</string>
 	<key>SUPublicEDKey</key>
-	<string>REPLACE_WITH_SPARKLE_ED_PUBLIC_KEY</string>
+	<string>hvMc+zTMVfz8Mlf6dBU1htzHkWSATK/ZfF6+UBvC2bA=</string>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 </dict>

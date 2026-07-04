@@ -5,6 +5,7 @@ import SwiftUI
 struct MenuBarContentView: View {
     @Environment(PreferredInputDeviceKeeper.self) private var keeper
     @Environment(\.openWindow) private var openWindow
+    @ObservedObject private var updater = UpdaterService.shared
 
     var body: some View {
         @Bindable var keeper = keeper
@@ -98,10 +99,15 @@ struct MenuBarContentView: View {
                     showAbout()
                 }
 
-                if UpdaterService.shared.supportsInAppUpdate {
-                    menuActionButton("检查更新…", symbol: "arrow.down.circle") {
+                if updater.supportsInAppUpdate {
+                    menuActionButton(
+                        updater.checkButtonTitle,
+                        symbol: updater.checkButtonSystemImage,
+                        isDisabled: !updater.canInitiateCheck,
+                        help: updater.visibleStatusMessage
+                    ) {
                         NSApp.activate()
-                        UpdaterService.shared.checkForUpdates()
+                        updater.checkForUpdates()
                     }
                 }
 
@@ -166,9 +172,18 @@ struct MenuBarContentView: View {
         _ title: String,
         symbol: String,
         shortcut: String? = nil,
+        isDisabled: Bool = false,
+        help: String? = nil,
         action: @escaping () -> Void
     ) -> some View {
-        MenuActionButton(title: title, symbol: symbol, shortcut: shortcut, action: action)
+        MenuActionButton(
+            title: title,
+            symbol: symbol,
+            shortcut: shortcut,
+            isDisabled: isDisabled,
+            help: help,
+            action: action
+        )
     }
 
     // MARK: - 状态与操作
@@ -261,6 +276,8 @@ private struct MenuActionButton: View {
     let title: String
     let symbol: String
     let shortcut: String?
+    let isDisabled: Bool
+    let help: String?
     let action: () -> Void
 
     @State private var isHovering = false
@@ -270,8 +287,9 @@ private struct MenuActionButton: View {
             HStack(spacing: 8) {
                 Image(systemName: symbol)
                     .frame(width: 16)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(isDisabled ? .tertiary : .secondary)
                 Text(title)
+                    .foregroundStyle(isDisabled ? .tertiary : .primary)
                 Spacer(minLength: 0)
                 if let shortcut {
                     Text(shortcut)
@@ -288,6 +306,8 @@ private struct MenuActionButton: View {
             )
         }
         .buttonStyle(.plain)
+        .disabled(isDisabled)
+        .help(help ?? title)
         .onHover { isHovering = $0 }
     }
 }

@@ -105,6 +105,8 @@ See the [Privacy Policy](https://focusmic.yayalu.top/privacy) for the full text.
 │   ├── UI/                 # SwiftUI menu bar, settings, rows, and log views
 │   ├── Assets.xcassets/    # App icons and colors
 │   └── IconSources/        # Source SVG/icon assets
+├── docs/                   # Maintenance and release documentation
+├── scripts/                # Release and maintenance scripts
 ├── SupportFiles/           # Entitlements and Sparkle Info.plist for both targets
 ├── landing/                # Static product site, terms, privacy, appcast, and i18n
 ├── README.md

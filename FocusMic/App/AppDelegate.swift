@@ -4,8 +4,8 @@ import AppKit
 final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         PreferredInputDeviceKeeper.shared.start()
-        // 直发版：初始化 Sparkle，让定时检查更新在启动时就开始工作；商店版为空实现。
-        _ = UpdaterService.shared
+        // 直发版：启动 Sparkle 定时检查；商店版为空实现。
+        UpdaterService.shared.start()
     }
 
     func applicationWillTerminate(_ notification: Notification) {
