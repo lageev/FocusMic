@@ -82,16 +82,6 @@ FocusMic 使用 [Core Audio](https://developer.apple.com/documentation/coreaudio
 
 当检测到变化时，FocusMic 会刷新输入设备列表，经过短暂防抖后，在守护开启且首选设备可用的情况下，把系统默认输入重新写回首选设备。
 
-## 发布
-
-直发版使用 GitHub Release + Sparkle appcast，标准流程见 [直发版发布流程](docs/release-direct.md)。
-
-常用命令：
-
-```sh
-scripts/release-direct.sh 0.0.3 7 --ship --notarize
-```
-
 ## 隐私
 
 FocusMic 完全在你的 Mac 本地运行。
@@ -115,8 +105,6 @@ FocusMic 完全在你的 Mac 本地运行。
 │   ├── UI/                 # SwiftUI 菜单栏、设置、设备行和日志视图
 │   ├── Assets.xcassets/    # App 图标和颜色
 │   └── IconSources/        # SVG/icon 源文件
-├── docs/                   # 发布流程和维护文档
-├── scripts/                # 发布与维护脚本
 ├── SupportFiles/           # 两个 target 的 entitlements 与 Sparkle Info.plist
 ├── landing/                # 静态官网、用户协议、隐私政策、更新源和多语言文案
 ├── README.md
