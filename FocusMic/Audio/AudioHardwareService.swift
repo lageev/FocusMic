@@ -52,6 +52,9 @@ final class AudioHardwareService {
         return allDeviceIDs.compactMap { deviceID in
             let channelCount = getInputChannelCount(deviceID)
             guard channelCount > 0, let uid = getDeviceUID(deviceID) else { return nil }
+            // AVAudioEngine 等会在进程内创建跟随默认输入的私有聚合设备
+            //（CADefaultDeviceAggregate-*），系统设置里不可见，这里也不展示。
+            guard !isPrivateAggregate(deviceID) else { return nil }
 
             return AudioInputDevice(
                 id: deviceID,
@@ -157,6 +160,20 @@ final class AudioHardwareService {
         var formatSize = UInt32(MemoryLayout<AudioStreamBasicDescription>.size)
         let status = AudioObjectGetPropertyData(stream, &formatAddress, 0, nil, &formatSize, &format)
         return status == noErr ? format.mBitsPerChannel : 0
+    }
+
+    /// 是否为进程内私有聚合设备。私有聚合设备只对创建它的进程可见，
+    /// 用户在 Audio MIDI Setup 里创建的普通聚合设备不受影响。
+    func isPrivateAggregate(_ deviceID: AudioObjectID) -> Bool {
+        guard getTransportType(deviceID) == kAudioDeviceTransportTypeAggregate else { return false }
+
+        var address = self.address(kAudioAggregateDevicePropertyComposition)
+        var composition: CFDictionary?
+        var dataSize = UInt32(MemoryLayout<CFDictionary?>.size)
+
+        let status = AudioObjectGetPropertyData(deviceID, &address, 0, nil, &dataSize, &composition)
+        guard status == noErr, let dict = composition as? [String: Any] else { return false }
+        return (dict[kAudioAggregateDeviceIsPrivateKey] as? NSNumber)?.boolValue ?? false
     }
 
     /// 是否有任意进程正在使用该设备（kAudioDevicePropertyDeviceIsRunningSomewhere）。
