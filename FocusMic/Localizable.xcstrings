@@ -241,6 +241,14 @@
         "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "主視窗" } }
       }
     },
+    "关于" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "About" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "情報" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "정보" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "關於" } }
+      }
+    },
     "关于 %@" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "About %@" } },

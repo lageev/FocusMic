@@ -228,17 +228,7 @@ struct MenuBarContentView: View {
             ]
         )
 
-        appendAboutLinks(
-            [
-                (String(localized: "官网"), "https://focusmic.yayalu.top/"),
-                (String(localized: "打赏"), "https://donation.yayalu.top/"),
-                (String(localized: "服务条款"), "https://focusmic.yayalu.top/terms"),
-                (String(localized: "隐私政策"), "https://focusmic.yayalu.top/privacy"),
-                (String(localized: "更多作品"), "https://pastehub.yayalu.top")
-            ],
-            to: credits,
-            paragraphStyle: paragraphStyle
-        )
+        appendAboutLinks(AppBrand.links, to: credits, paragraphStyle: paragraphStyle)
 
         return credits
     }

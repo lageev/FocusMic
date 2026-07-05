@@ -1,7 +1,8 @@
 import AppKit
 import SwiftUI
 
-/// 主界面：多标签页排版，分为「状态 / 设备 / 日志 / 设置」四页。
+/// 主界面：多标签页排版，分为「状态 / 日志 / 设置 / 关于」四页；
+/// 状态页把状态卡、设备列表与守护开关放在一起，选设备和开守护不用切页。
 struct MainView: View {
     @Environment(PreferredInputDeviceKeeper.self) private var keeper
     @Environment(\.openWindow) private var openWindow
@@ -16,17 +17,17 @@ struct MainView: View {
             Tab("状态", systemImage: "lock.shield") {
                 statusTab
             }
-            Tab("设备", systemImage: "mic") {
-                devicesTab
-            }
             Tab("日志", systemImage: "list.bullet.rectangle") {
                 logsTab
             }
             Tab("设置", systemImage: "gearshape") {
                 settingsTab
             }
+            Tab("关于", systemImage: "info.circle") {
+                aboutTab
+            }
         }
-        .frame(width: 520, height: 480)
+        .frame(width: 520, height: 560)
         .onAppear {
             keeper.refreshDevices()
             launchAtLogin = LoginItemManager.isEnabled
@@ -62,6 +63,41 @@ struct MainView: View {
                 }
                 .padding(.vertical, 4)
                 .animation(.easeOut(duration: 0.25), value: status.symbol)
+            }
+
+            Section("输入设备") {
+                if keeper.devices.isEmpty {
+                    HStack {
+                        Spacer()
+                        VStack(spacing: 6) {
+                            Image(systemName: "mic.slash")
+                                .font(.title2)
+                                .foregroundStyle(.tertiary)
+                            Text("未检测到输入设备")
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                    }
+                    .padding(.vertical, 12)
+                } else {
+                    ForEach(keeper.devices) { device in
+                        DeviceRow(
+                            device: device,
+                            status: DeviceRowStatus(
+                                device: device,
+                                isPreferred: device.uid == keeper.preferredUID,
+                                hasPreferredDevice: keeper.preferredUID != nil,
+                                isGuardEnabled: keeper.isEnabled
+                            ),
+                            density: .detailed
+                        ) {
+                            keeper.selectPreferred(device)
+                        }
+                    }
+                }
+                Button("刷新设备列表", systemImage: "arrow.clockwise") {
+                    keeper.refreshDevices()
+                }
             }
 
             Section("守护") {
@@ -103,48 +139,6 @@ struct MainView: View {
                 if keeper.isLevelMeterEnabled {
                     InputLevelMeterView()
                         .padding(.vertical, 2)
-                }
-            }
-        }
-        .formStyle(.grouped)
-    }
-
-    // MARK: - 设备页
-
-    private var devicesTab: some View {
-        Form {
-            Section("输入设备") {
-                if keeper.devices.isEmpty {
-                    HStack {
-                        Spacer()
-                        VStack(spacing: 6) {
-                            Image(systemName: "mic.slash")
-                                .font(.title2)
-                                .foregroundStyle(.tertiary)
-                            Text("未检测到输入设备")
-                                .foregroundStyle(.secondary)
-                        }
-                        Spacer()
-                    }
-                    .padding(.vertical, 12)
-                } else {
-                    ForEach(keeper.devices) { device in
-                        DeviceRow(
-                            device: device,
-                            status: DeviceRowStatus(
-                                device: device,
-                                isPreferred: device.uid == keeper.preferredUID,
-                                hasPreferredDevice: keeper.preferredUID != nil,
-                                isGuardEnabled: keeper.isEnabled
-                            ),
-                            density: .detailed
-                        ) {
-                            keeper.selectPreferred(device)
-                        }
-                    }
-                }
-                Button("刷新设备列表", systemImage: "arrow.clockwise") {
-                    keeper.refreshDevices()
                 }
             }
         }
@@ -252,6 +246,41 @@ struct MainView: View {
             }
         }
         .formStyle(.grouped)
+    }
+
+    // MARK: - 关于页
+
+    private var aboutTab: some View {
+        VStack(spacing: 8) {
+            Spacer(minLength: 0)
+
+            Image(nsImage: NSApp.applicationIconImage)
+                .resizable()
+                .frame(width: 96, height: 96)
+
+            Text(AppBrand.name)
+                .font(.title2.weight(.semibold))
+            Text("版本 \(UpdaterService.currentVersion)")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            Text(AppBrand.slogan)
+                .font(.callout)
+                .foregroundStyle(.secondary)
+                .padding(.top, 2)
+
+            HStack(spacing: 14) {
+                ForEach(AppBrand.links, id: \.url) { link in
+                    if let url = URL(string: link.url) {
+                        Link(link.title, destination: url)
+                            .font(.caption)
+                    }
+                }
+            }
+            .padding(.top, 10)
+
+            Spacer(minLength: 0)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     private func updateLoginItem(_ enabled: Bool) {
